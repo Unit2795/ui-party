@@ -10,3 +10,5 @@ A collection of components from different UI libraries.
 - Nice having full control over the component source, may never need to touch this, but it's good to have the option.
 
 # Material UI
+- Easy to use components
+- A little harder to customize deeply

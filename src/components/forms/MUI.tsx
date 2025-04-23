@@ -34,6 +34,12 @@ import {
 	FormValues,
 	formSchema
 } from "@/zod/schema.ts";
+import {
+	cardDescription,
+	cardTitle,
+	categoryOptions,
+	tagValues
+} from "@/shared.ts";
 
 const MUI = () => {
 	// Form handling with React Hook Form
@@ -53,7 +59,7 @@ const MUI = () => {
 	} );
 
 	// Tags state
-	const [ tags, setTags ] = useState( [ "React", "UI", "Demo" ] );
+	const [ tags, setTags ] = useState( tagValues );
 
 	// Modal state
 	const [ showModal, setShowModal ] = useState( false );
@@ -87,8 +93,8 @@ const MUI = () => {
 			<form onSubmit={ handleSubmit( onSubmit ) }>
 				<Card elevation={ 3 }>
 					<CardHeader
-						subheader="A simple demonstration of Material UI components"
-						title="Demo Form"/>
+						subheader={ cardDescription }
+						title={ cardTitle }/>
 
 					<CardContent
 						sx={
@@ -128,11 +134,15 @@ const MUI = () => {
 										);
 									}
 								}>
-								<MenuItem value="design">Design</MenuItem>
-
-								<MenuItem value="development">Development</MenuItem>
-
-								<MenuItem value="marketing">Marketing</MenuItem>
+								{
+									categoryOptions.map( ( category ) => (
+										<MenuItem
+											key={ category }
+											value={ category }>
+											{ category }
+										</MenuItem>
+									) )
+								}
 							</Select>
 
 							{

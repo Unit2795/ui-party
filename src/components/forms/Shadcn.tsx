@@ -51,7 +51,16 @@ import {
 import {
 	Badge
 } from "@/components/ui/badge.tsx";
-import { formSchema, FormValues } from "@/zod/schema";
+import {
+	FormValues,
+	formSchema
+} from "@/zod/schema";
+import {
+	cardDescription,
+	cardTitle,
+	categoryOptions,
+	tagValues
+} from "@/shared.ts";
 
 export const Shadcn = () => {
 	// Form handling with React Hook Form
@@ -64,7 +73,7 @@ export const Shadcn = () => {
 	} );
 
 	// Tags state
-	const [ tags, setTags ] = useState( [ "React", "UI", "Demo" ] );
+	const [ tags, setTags ] = useState( tagValues );
 
 	// Modal state
 	const [ showModal, setShowModal ] = useState( false );
@@ -92,10 +101,10 @@ export const Shadcn = () => {
 			<form onSubmit={ form.handleSubmit( onSubmit ) }>
 				<Card className="shadow-md">
 					<CardHeader>
-						<CardTitle>Demo Form</CardTitle>
+						<CardTitle>{cardTitle}</CardTitle>
 
 						<CardDescription>
-							A simple demonstration of Shadcn UI components.
+							{cardDescription}
 						</CardDescription>
 					</CardHeader>
 
@@ -141,11 +150,15 @@ export const Shadcn = () => {
 								</SelectTrigger>
 
 								<SelectContent>
-									<SelectItem value="design">Design</SelectItem>
-
-									<SelectItem value="development">Development</SelectItem>
-
-									<SelectItem value="marketing">Marketing</SelectItem>
+									{
+										categoryOptions.map( ( category ) => (
+											<SelectItem
+												key={ category }
+												value={ category.toLowerCase() }>
+												{category}
+											</SelectItem>
+										) )
+									}
 								</SelectContent>
 							</Select>
 
