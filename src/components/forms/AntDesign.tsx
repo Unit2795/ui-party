@@ -1,7 +1,6 @@
 import {
 	Button,
 	Card,
-	Form,
 	Input,
 	Modal,
 	Select,
@@ -99,8 +98,22 @@ const AntDesign = () => {
 						}
 					}>
 					{/* Card Header */}
-					<div style={{ marginBottom: "16px" }}>
-						<Title level={4} style={{ margin: "0 0 8px 0" }}>{cardTitle}</Title>
+					<div
+						style={
+							{
+								marginBottom: "16px"
+							}
+						}>
+						<Title
+							level={ 4 }
+							style={
+								{
+									margin: "0 0 8px 0"
+								}
+							}>
+							{cardTitle}
+						</Title>
+
 						<Text type="secondary">{cardDescription}</Text>
 					</div>
 
@@ -122,15 +135,37 @@ const AntDesign = () => {
 										field
 									} ) => (
 										<div>
-											<Text strong style={{ display: "block", marginBottom: "8px" }}>Name</Text>
+											<Text
+												strong
+												style={
+													{
+														display: "block",
+														marginBottom: "8px"
+													}
+												}>
+												Name
+											</Text>
+
 											<Input
 												{ ...field }
 												placeholder="Enter your name"/>
-											{errors.name && (
-												<Text type="danger" style={{ display: "block", marginTop: "4px" }}>
-													{errors.name.message}
-												</Text>
-											)}
+
+											{
+												errors.name
+													? (
+														<Text
+															style={
+																{
+																	display: "block",
+																	marginTop: "4px"
+																}
+															}
+															type="danger">
+															{errors.name.message}
+														</Text>
+													)
+													: null
+											}
 										</div>
 									)
 								}/>
@@ -146,7 +181,17 @@ const AntDesign = () => {
 										field
 									} ) => (
 										<div>
-											<Text strong style={{ display: "block", marginBottom: "8px" }}>Category</Text>
+											<Text
+												strong
+												style={
+													{
+														display: "block",
+														marginBottom: "8px"
+													}
+												}>
+												Category
+											</Text>
+
 											<Select
 												{ ...field }
 												placeholder="Select a category"
@@ -165,11 +210,23 @@ const AntDesign = () => {
 													) )
 												}
 											</Select>
-											{errors.category && (
-												<Text type="danger" style={{ display: "block", marginTop: "4px" }}>
-													{errors.category.message}
-												</Text>
-											)}
+
+											{
+												errors.category
+													? (
+														<Text
+															style={
+																{
+																	display: "block",
+																	marginTop: "4px"
+																}
+															}
+															type="danger">
+															{errors.category.message}
+														</Text>
+													)
+													: null
+											}
 										</div>
 									)
 								}/>
@@ -202,7 +259,11 @@ const AntDesign = () => {
 											closable
 											closeIcon={ <CloseOutlined /> }
 											key={ tag }
-											style={{ padding: "4px 8px" }}
+											style={
+												{
+													padding: "4px 8px"
+												}
+											}
 											onClose={
 												() => {
 													removeTag( tag );

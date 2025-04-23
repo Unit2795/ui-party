@@ -7,6 +7,7 @@ import {
 } from "@/components/forms/Shadcn.tsx";
 import MUI from "./components/forms/MUI";
 import AntDesign from "./components/forms/AntDesign";
+import DaisyUI from "@/components/forms/DaisyUI.tsx";
 
 function App() {
 	return (
@@ -24,6 +25,10 @@ function App() {
 			<h2 className="text-2xl mt-24 mb-4">Ant Design</h2>
 
 			<AntDesign/>
+
+			<h2 className="text-2xl mt-24 mb-4">daisyUI</h2>
+
+			<DaisyUI/>
 		</div>
 	);
 }
