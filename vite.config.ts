@@ -11,6 +11,7 @@ export default defineConfig( {
 		react(),
 		tailwindcss(),
 	],
+	base: "/ui-party/",
 	resolve: {
 		alias: {
 			"@": path.resolve(
