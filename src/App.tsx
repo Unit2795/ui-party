@@ -5,15 +5,20 @@ import "@fontsource/roboto/700.css";
 import {
 	Shadcn
 } from "@/components/forms/Shadcn.tsx";
+import MUI from "./components/forms/MUI";
 
 function App() {
 	return (
-		<div className="flex h-screen w-screen items-center justify-center bg-background flex-col">
-			<h1 className="mb-24 text-4xl">Welcome to UI Party! 🎉</h1>
+		<div className="flex w-screen items-center justify-center flex-col my-12">
+			<h1 className="mb-12 text-4xl">Welcome to UI Party! 🎉</h1>
 
-			<h2 className="text-2xl mb-4">Shadcn/ui</h2>
+			<h2 className="text-2xl mt-12 mb-4">Shadcn/ui</h2>
 
 			<Shadcn/>
+
+			<h2 className="text-2xl mt-12 mb-4">Material UI</h2>
+
+			<MUI/>
 		</div>
 	);
 }

@@ -3,9 +3,6 @@ import {
 	useForm
 } from "react-hook-form";
 import {
-	z
-} from "zod";
-import {
 	Loader2,
 	X
 } from "lucide-react";
@@ -54,19 +51,7 @@ import {
 import {
 	Badge
 } from "@/components/ui/badge.tsx";
-
-const formSchema = z.object( {
-	name: z.string().min(
-		2,
-		{
-			message: "Name must be at least 2 characters.",
-		}
-	),
-	category: z.string( {
-		required_error: "Please select a category.",
-	} ),
-} );
-type FormValues = z.infer<typeof formSchema>;
+import { formSchema, FormValues } from "@/zod/schema";
 
 export const Shadcn = () => {
 	// Form handling with React Hook Form
