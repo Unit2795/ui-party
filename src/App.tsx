@@ -6,6 +6,7 @@ import {
 	Shadcn
 } from "@/components/forms/Shadcn.tsx";
 import MUI from "./components/forms/MUI";
+import AntDesign from "./components/forms/AntDesign";
 
 function App() {
 	return (
@@ -19,6 +20,10 @@ function App() {
 			<h2 className="text-2xl mt-24 mb-4">Material UI</h2>
 
 			<MUI/>
+
+			<h2 className="text-2xl mt-24 mb-4">Ant Design</h2>
+
+			<AntDesign/>
 		</div>
 	);
 }
